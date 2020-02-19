@@ -132,27 +132,6 @@ public class VehicleMovement : MonoBehaviour
 	#endregion
 
 
-	#region Rail Settings
-
-	[Space(10)]
-	[Header("Rail Settings")]
-	[Space(10)]
-
-	[Tooltip("The rail detection maximal distance.")]
-	public float railMaxDst = 1.5f;
-	[Tooltip("A layer mask to determine what layer the rail is on")]
-	public LayerMask whatIsRail;
-	[Tooltip("When the player quits the rail, prematurely or not, what should the board do ?")]
-	public UnityEvent onPathQuit;            
-
-
-	// (calculated internally)
-	bool isOnRail;                          //Permet de savoir à tout moment si le joueur est sur un rail
-
-	[Space(10)]
-
-	#endregion
-
 
 
 	#region Hover Settings
@@ -235,29 +214,12 @@ public class VehicleMovement : MonoBehaviour
 		speed = Vector3.Dot(rigidBody.velocity, transform.forward);
 
 		//Calculate the forces to be applied to the ship
-		CalculateRail();
 		CalculatHover();
 		CalculatePropulsion();
 	}
 
 
 
-
-        #region Rail
-	private void CalculateRail()
-	{
-
-
-
-    }
-
-	//Appelée par l'UnityEvent onPathQuit
-	public void OnPathQuit()
-	{
-
-	}
-
-    #endregion
 
 
     #region Movements & Collisions

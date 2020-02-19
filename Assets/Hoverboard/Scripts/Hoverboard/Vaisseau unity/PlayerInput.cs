@@ -24,6 +24,9 @@ public class PlayerInput : MonoBehaviour
 	[Tooltip("The name of the boost button.")]
 	public string boostKey = "Boost";
 
+	[Tooltip("The name of the pause button.")]
+	public string pauseKey = "Pause";
+
 	//We hide these in the inspector because we want 
 	//them public but we don't want people trying to change them
 	[HideInInspector] public float thruster;			
@@ -33,6 +36,7 @@ public class PlayerInput : MonoBehaviour
 	[HideInInspector] public bool isChargingJump;		
 	[HideInInspector] public bool hasReleasedJump;		
 	[HideInInspector] public bool hasActivatedBoost;		
+	[HideInInspector] public bool isPausing;		
 
 	void Update()
 	{
@@ -41,12 +45,17 @@ public class PlayerInput : MonoBehaviour
 			Application.Quit();
 
 		//If a GameManager exists and the game is not active...
-		if (GameManager.instance != null && !GameManager.instance.IsActiveGame())
+		if (GameManager.instance != null && !GameManager.instance.IsActiveGame() && (ItemManager.instance.epreuveHasStarted || !ItemManager.instance.epreuveHasEnded))
 		{
 			//...set all inputs to neutral values and exit this method
 			thruster = rudder = 0f;
 			isBraking = isChargingJump = isDrifting = hasActivatedBoost = false;
 			return;
+		}
+
+		if (Input.GetButtonDown(pauseKey))
+		{
+			isPausing = !isPausing;
 		}
 
 		//Get the values of the thruster, rudder, and brake from the input class
@@ -73,6 +82,8 @@ public class PlayerInput : MonoBehaviour
 		{
 			hasReleasedJump = true;
 		}
+
+		
 
 	}
 }

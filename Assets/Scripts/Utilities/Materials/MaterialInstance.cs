@@ -26,11 +26,15 @@ public class MaterialInstance : MonoBehaviour
             if (mr.sharedMaterial)
             {
                 Material m = new Material(mr.sharedMaterial);
-                m.mainTextureScale = tiling;
+                MaterialPropertyBlock mblock = new MaterialPropertyBlock();
+
+                mblock.SetVector("_BaseMap_ST", new Vector4(tiling.x, tiling.y, 0, 0));
                 mr.material = m;
+                mr.SetPropertyBlock(mblock);
             }
         }
     }
+
 
 #endif
 }
