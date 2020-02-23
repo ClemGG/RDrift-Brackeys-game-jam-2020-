@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ecran
+  m_Shader: {fileID: 4800000, guid: aa4217becbc1e424691005313c6be665, type: 3}
+  m_ShaderKeywords: BOOLEAN_71133DDC_ON BOOLEAN_F1293585_ON ETC1_EXTERNAL_ALPHA _EMISSION
+  m_LightmapFlags: 6
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_60305D7A:
+        m_Texture: {fileID: 2800000, guid: 8a4569df886e73e41a7c73caaa89ba5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A49E801E:
+        m_Texture: {fileID: 8400000, guid: 83fe81f80ca5e13489ab7161480f3f58, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture_60305D7A:
+        m_Texture: {fileID: 8400000, guid: e0bc306def0f6a04b91cd179c748c279, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_1B9B221F: 0
+    - Boolean_1D95622A: 1
+    - Boolean_4EDFE7EF: 1
+    - Boolean_71133DDC: 1
+    - Boolean_7A1F5294: 0
+    - Boolean_D5E12229: 1
+    - Boolean_F1293585: 1
+    - Vector1_1CBAFBEC: 104
+    - Vector1_1CE3A605: 1.66
+    - Vector1_26549592: 10
+    - Vector1_2D63F6B2: 1
+    - Vector1_3C32B9D3: 1
+    - Vector1_4B3952C5: 40
+    - Vector1_54CCE60E: 1
+    - Vector1_599AAA4E: 3
+    - Vector1_5CDBF9AC: 0.033
+    - Vector1_60CFF1A: -0.014
+    - Vector1_648397CE: 1
+    - Vector1_6884F84E: 1.014
+    - Vector1_7C478008: 6
+    - Vector1_85371579: 100
+    - Vector1_8640D35C: 0.023
+    - Vector1_8F353FE4: 1.5
+    - Vector1_92925BD0: 7.48
+    - Vector1_9EAA04F2: 30
+    - Vector1_A0A2B535: 1.5
+    - Vector1_A76FC95E: 0
+    - Vector1_AAA1CCBC: 0.1
+    - Vector1_B271AD97: 0.15
+    - Vector1_BD57A5E2: 400
+    - Vector1_C025CAA0: 100
+    - Vector1_C53AF4B0: 0.1
+    - Vector1_C812F256: 0.06
+    - Vector1_C8D0B852: 30
+    - Vector1_D61FF3FC: 0
+    - Vector1_E3F89882: 0
+    - Vector1_F2172F29: 10000
+    - Vector1_F239D32B: 0.2
+    - Vector1_F99A36FC: 0.04
+    - Vector1_FCC055C3: 750
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - Color_E0142623: {r: 1, g: 1, b: 1, a: 0}
+    - Color_EB766E1: {r: 1.0592737, g: 0.98717654, b: 0.82634443, a: 0}
+    - Vector2_100F15CE: {r: 0, g: 1, b: 0, a: 0}
+    - Vector2_613E1429: {r: 2, g: -2, b: 0, a: 0}
+    - Vector2_9EF28682: {r: 0, g: 1, b: 0, a: 0}
+    - Vector2_C6AE91F6: {r: 0, g: 1, b: 0, a: 0}
+    - Vector2_CE66C8D3: {r: -0.5, g: 0.5, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    [SerializeField] GameObject panelBtns, panelControls, panelLevelSelect;
+    [SerializeField] GameObject panelControls, panelLevelSelect;
 
     bool panelDone = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-        if (!panelDone)
-        {
-            panelBtns.SetActive(true);
-            DisablePanel(panelControls, panelLevelSelect);
-
-        }
+        OnLevelWasLoaded(0);
     }
-
 
     public void OnLevelWasLoaded(int level)
     {
-        DisablePanel(panelBtns, panelControls);
+        DisablePanel(panelControls);
         panelLevelSelect.SetActive(true);
     }
 

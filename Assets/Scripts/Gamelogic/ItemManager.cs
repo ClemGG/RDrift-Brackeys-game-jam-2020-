@@ -39,6 +39,7 @@ public class ItemManager : MonoBehaviour
 
     int curCoinCount;
     float _timeLeftTimer;
+    float _recordTimer;
 
 
     [Header("Epreuve : ")]
@@ -52,12 +53,14 @@ public class ItemManager : MonoBehaviour
     {
         instance = this;
         epreuveHasEnded = epreuveHasStarted = false;
-        _timeLeftTimer = timerBeforeDefeat;
+        _timeLeftTimer = _recordTimer = timerBeforeDefeat;
         feedBackTexts.SetActive(false);
         ecransVictoireDefaite.SetActive(false);
         countdownDebut.SetActive(true);
 
         curCoinCountText.text = activationTimerLeftText.text = timeLeftText.text = "";
+        activationTimerLeftText.gameObject.SetActive(false);
+
 
     }
 
@@ -69,6 +72,7 @@ public class ItemManager : MonoBehaviour
             if(_timeLeftTimer > 0f)
             {
                 _timeLeftTimer -= Time.deltaTime;
+                _recordTimer -= Time.deltaTime;
                 timeLeftText.text = ConvertToTime(_timeLeftTimer);
                 timeLeftText.color = _timeLeftTimer > timeLeftPinch ? timeLeftNormalColor : timeLeftPinchColor;
 
@@ -138,14 +142,17 @@ public class ItemManager : MonoBehaviour
         PlayerPrefs.SetInt($"Epreuve {SceneFader.GetCurSceneIndex()} done", 1);
 
         if(victory && timerBeforeDefeat - _timeLeftTimer < PlayerPrefs.GetFloat($"New Record {SceneFader.GetCurSceneIndex()}", timerBeforeDefeat))
-            PlayerPrefs.SetFloat($"New Record {SceneFader.GetCurSceneIndex()}", timerBeforeDefeat - _timeLeftTimer);
+            PlayerPrefs.SetFloat($"New Record {SceneFader.GetCurSceneIndex()}", timerBeforeDefeat - _recordTimer);
 
 
         feedBackTexts.SetActive(false);
         ecransVictoireDefaite.SetActive(true);
-        epreuveHasEnded = true;
+
         animatorVictoryDefeat.Play(victory ? "victory" : "defeat");
         AudioManager.instance.Play(victory ? victoryClip : defeatClip);
+
+        epreuveHasEnded = true;
+        GameManager.instance.isGameOver = true;
 
         StartCoroutine(DisplayVictory(victory));
     }
@@ -165,12 +172,13 @@ public class ItemManager : MonoBehaviour
     {
         //Activer anim timer door
 
-
+        activationTimerLeftText.gameObject.SetActive(true);
         while (door.shouldCount)
         {
-            activationTimerLeftText.text = Mathf.Clamp(door._timer, 0f, door.activationDelay).ToString();
+            activationTimerLeftText.text = ConvertToTime(Mathf.Clamp(door._timer, 0f, door.activationDelay)).ToString();
             yield return null;
         }
+        activationTimerLeftText.gameObject.SetActive(false);
 
         //Désactiver anim timer door
 

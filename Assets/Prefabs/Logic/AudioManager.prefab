@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &49683016029314797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49683016029314799}
+  - component: {fileID: 49683016029314796}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49683016029314799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49683016029314797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.022224, y: 5.057572, z: 63.712456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49683016029314796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49683016029314797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34992b180a07ca240a8db00ea0f7897a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sons:
+  - tag: Beep Low
+    clip: {fileID: 8300000, guid: bfcb0fe3a88f6a34eb82f88000cfce09, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: Beep High
+    clip: {fileID: 8300000, guid: 1c432991b7f671e48b2be37349258834, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: clip_DEFEAT
+    clip: {fileID: 8300000, guid: 311001f65bec9854b8e5edfaa514c4ea, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 0.5
+    loop: 0
+    playOnAwake: 0
+  - tag: clip_VICTORY
+    clip: {fileID: 8300000, guid: fb06e9e7f9362c14f842188773f51cdc, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: BGM
+    clip: {fileID: 8300000, guid: 9e0e12140800511458d61ed274a5db23, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+  - tag: buttonPressed
+    clip: {fileID: 8300000, guid: 9501ea826ab834547a4d6a1e38749b91, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: death
+    clip: {fileID: 8300000, guid: bf33d0c027cc9b246b7196d730cae607, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: countdown
+    clip: {fileID: 8300000, guid: f8516f04566c027448e7b90308fae103, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: doorOpened
+    clip: {fileID: 8300000, guid: dd4afa6259bd8fa47bb25cba20c68f94, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: coinSound
+    clip: {fileID: 8300000, guid: 5cf110f5b863a0448a39e2ca3f0dd287, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+  - tag: timerSound
+    clip: {fileID: 8300000, guid: 284a35b0b20c84a489b8f47291b858c5, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0

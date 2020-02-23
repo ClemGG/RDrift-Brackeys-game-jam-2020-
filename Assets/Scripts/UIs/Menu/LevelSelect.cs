@@ -10,23 +10,26 @@ public class LevelSelect : MonoBehaviour
         PlayerPrefs.SetInt($"Epreuve {0} done", 1);
     }
 
-    private void OnEnable()
+
+
+    private void Start()
     {
 
 
         for (int i = 0; i < btns.Length; i++)
         {
-
-            bool locked = PlayerPrefs.GetInt($"Epreuve {i} done", 0) == 0;
-            bool done = PlayerPrefs.GetInt($"Epreuve {i+1} done", 0) == 1;
-            btns[i].MarkAsLocked(locked && i != 0); //Pour que le premier bouton soit toujours activé
-
-            if (done)
+            if (btns[i])
             {
-                btns[i].MarkAsDone();
-                btns[i].DisplayNewRecord(i+1);
-            }
+                bool locked = PlayerPrefs.GetInt($"Epreuve {i} done", 0) == 0;
+                bool done = PlayerPrefs.GetInt($"Epreuve {i + 1} done", 0) == 1;
+                btns[i].MarkAsLocked(locked && i != 0); //Pour que le premier bouton soit toujours activé
 
+                if (done)
+                {
+                    btns[i].MarkAsDone();
+                    btns[i].DisplayNewRecord(i + 1);
+                }
+            }
         }
 
     }

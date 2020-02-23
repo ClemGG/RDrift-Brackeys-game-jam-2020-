@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main menu.unity
     guid: bebb9219c15e863459761f6e1d728bc2
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/test des m\xE9caniques.unity"
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/1.unity
+    guid: e61b3f683072c3a45a323c0166606401
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: ffe0c1947d368a74d99da5d2b93b211c
+  - enabled: 1
+    path: Assets/Scenes/3.unity
+    guid: d2a2476888ac5434091fbd77dd559b04
+  - enabled: 1
+    path: Assets/Scenes/4.unity
+    guid: b4ae7697c62a77c4099080dfd32cf65b
   m_configObjects: {}

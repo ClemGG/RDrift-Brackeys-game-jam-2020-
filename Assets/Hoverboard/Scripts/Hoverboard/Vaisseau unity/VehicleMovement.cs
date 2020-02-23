@@ -76,27 +76,6 @@ public class VehicleMovement : MonoBehaviour
 	#endregion
 
 
-	#region Boost Settings
-
-	[Space(10)]
-	[Header("Boost Settings")]
-	[Space(10)]
-
-	[Tooltip("The impulsion added to the board to reach its maximal speed.")]
-	[SerializeField] float boostForce = 30f;                
-
-	[Tooltip("To avoid accelerating immediately after accomplishing a boost.")]
-	[SerializeField] float delayBetweenBoosts = 2f;         
-
-
-
-	// (calculated internally)
-	float _boostForce;										//Force utilisée pour faire sauter la planche
-	float _delayBetweenBoostsTimer;							//Pour s'assurer un intervalle entre chaque boost
-	[HideInInspector] public bool allowedToBoost = false;   //Utilisée pour détecter que les conditions d'un boost sont réunies
-
-	#endregion
-
 
 	#region Jump Settings
 
@@ -268,10 +247,14 @@ public class VehicleMovement : MonoBehaviour
 		}
 
 		//On affiche la moyenne des normales au sol
-		if (nbContacts > 0)
+		if (nbContacts > 0)// && Mathf.Abs(Vector3.Angle(Vector3.up, groundNormal)) < 95f)
 		{
 			groundNormal /= nbContacts;
 			groundNormal = groundNormal.normalized;
+		}
+		else
+		{
+			groundNormal = Vector3.up;
 		}
 
 
@@ -468,48 +451,6 @@ public class VehicleMovement : MonoBehaviour
 
 
 
-        #region Boost countdown
-        //Je place ça avant le if thruster pour que la durée du boost puisse être calculée même en l'air
-        if (!allowedToBoost)
-		{
-			if (_delayBetweenBoostsTimer < delayBetweenBoosts)
-			{
-				_delayBetweenBoostsTimer += Time.deltaTime;
-
-				//Pour faire accélérer la planche une fois le boost lancé jusqu'à ce qu'elle atteigne la boostTerminalVelocity
-				if (!input.isBraking)
-				{
-					float _boostAcc = 0f;
-					_boostAcc = boostForce > boostTerminalVelocity - speed ? Mathf.Clamp(_boostAcc, boostTerminalVelocity - speed, boostForce) : boostForce;
-
-					float boostAcc = _boostAcc * Mathf.Clamp(speed, 0f, boostTerminalVelocity);
-					rigidBody.AddForce(t.forward * boostAcc, ForceMode.Acceleration);
-				}
-			}
-			else
-			{
-				_delayBetweenBoostsTimer = 0f;
-				allowedToBoost = true;
-
-				//On ramène le drag à sa valeur normale
-				drag = driveForce / terminalVelocity;
-			}
-		}
-		else
-		{
-			if (speed > terminalVelocity /*&& !input.isBraking*/)
-			{
-				//Pour faire ralentir la planche une fois le boost terminé pour la ramener à sa terminalVelocity si elle l'a dépassée
-				float _boostDec = 0f;
-				_boostDec = Mathf.Clamp(_boostDec, 0f, speed - terminalVelocity);
-
-				float boostDec = _boostDec - drag * Mathf.Clamp(speed, terminalVelocity, boostTerminalVelocity);
-				rigidBody.AddForce(t.forward * boostDec, ForceMode.Acceleration);
-			}
-		}
-
-
-        #endregion
 
 
         //If not propelling the ship, slow the ships velocity
@@ -522,37 +463,16 @@ public class VehicleMovement : MonoBehaviour
 			return;
 
 		//If the ship is braking, apply the braking velocty reduction
-		if (input.isBraking)
-			rigidBody.velocity *= brakingVelFactor;
-
-
-
-		//Le système de boost est à revoir, mais on s'en contentera pour le moment
-		#region Boost & propulsion
-
-		if (input.hasActivatedBoost)
-		{
-			if(isOnGround && allowedToBoost)
-			{
-				allowedToBoost = false;
-				input.isBraking = false;
-
-				_boostForce = boostForce > boostTerminalVelocity - speed ? Mathf.Clamp(_boostForce, 0f, boostTerminalVelocity - speed) : boostForce;
-				rigidBody.AddForce(t.forward * _boostForce, ForceMode.Impulse);
-
-				//On augmente le drag pour qu'il s'adapte à la vitesse du boost
-				drag = boostForce / boostTerminalVelocity;
-			}
-		}
+		//if (input.isBraking)
+		//	rigidBody.velocity *= brakingVelFactor;
 
 
 
 		//Calculate and apply the amount of propulsion force by multiplying the drive force
 		//by the amount of applied thruster and subtracting the drag amount
-		float propulsion = driveForce * input.thruster - drag * Mathf.Clamp(speed, 0f, !allowedToBoost ? boostTerminalVelocity : terminalVelocity);
+		float propulsion = driveForce * input.thruster - drag * Mathf.Clamp(speed, 0f, terminalVelocity);
 		rigidBody.AddForce(t.forward * propulsion, ForceMode.Acceleration);
 
-        #endregion
     }
 
     void OnCollisionStay(Collision c)
@@ -588,13 +508,6 @@ public class VehicleMovement : MonoBehaviour
 			//print(angle);
 			rigidBody.AddForce(c.contacts[0].normal * collisionKnockbackForce * angle, ForceMode.Impulse);
 
-			//On arrête le boost si le facteur de recul est supérieur à 0,6
-			if(angle > collisionKnockbackStopBoostAngle)
-			{
-				allowedToBoost = true;
-				_boostForce = 0f;
-				_delayBetweenBoostsTimer = 0f;
-			}
 		}
 	}
 

@@ -12,8 +12,8 @@ public class PlayerInput : MonoBehaviour
 	[Tooltip("The name of the rudder axis.")]
 	public string horizontalAxisName = "Horizontal";
 	
-	[Tooltip("The name of the brake button.")]
-	public string brakingKey = "Brake";
+	//[Tooltip("The name of the brake button.")]
+	//public string brakingKey = "Brake";
 
 	[Tooltip("The name of the drift button.")]
 	public string driftingKey = "Drift";    
@@ -21,8 +21,6 @@ public class PlayerInput : MonoBehaviour
 	[Tooltip("The name of the jump button.")]
 	public string jumpKey = "Jump";             
 	
-	[Tooltip("The name of the boost button.")]
-	public string boostKey = "Boost";
 
 	[Tooltip("The name of the pause button.")]
 	public string pauseKey = "Pause";
@@ -31,11 +29,10 @@ public class PlayerInput : MonoBehaviour
 	//them public but we don't want people trying to change them
 	[HideInInspector] public float thruster;			
 	[HideInInspector] public float rudder;				
-	[HideInInspector] public bool isBraking;			
+	//[HideInInspector] public bool isBraking;			
 	[HideInInspector] public bool isDrifting;			
 	[HideInInspector] public bool isChargingJump;		
 	[HideInInspector] public bool hasReleasedJump;		
-	[HideInInspector] public bool hasActivatedBoost;		
 	[HideInInspector] public bool isPausing;		
 
 	void Update()
@@ -49,7 +46,7 @@ public class PlayerInput : MonoBehaviour
 		{
 			//...set all inputs to neutral values and exit this method
 			thruster = rudder = 0f;
-			isBraking = isChargingJump = isDrifting = hasActivatedBoost = false;
+			/*isBraking = */isChargingJump = isDrifting = false;
 			return;
 		}
 
@@ -64,18 +61,16 @@ public class PlayerInput : MonoBehaviour
 		//isBraking = Input.GetButton(brakingKey);
 		isDrifting = Input.GetButton(driftingKey);
 		isChargingJump = Input.GetButton(jumpKey);
-		hasActivatedBoost = Input.GetButtonDown(boostKey);
 
-		//La raison pour laquelle on n'utilise pas simplement GetButton() est parce que l'on veut que le boost désactive le frein quand on l'active.
-		//Donc pour freiner à nouveau après un boost, le joueur doit à nouveau appuyer sur le frein.
-		if (Input.GetButtonDown(brakingKey))
-		{
-			isBraking = true;
-		}
-		else if (Input.GetButtonUp(brakingKey))
-		{
-			isBraking = false;
-		}
+
+		//if (Input.GetButtonDown(brakingKey))
+		//{
+		//	isBraking = true;
+		//}
+		//else if (Input.GetButtonUp(brakingKey))
+		//{
+		//	isBraking = false;
+		//}
 
 
 		if (Input.GetButtonUp(jumpKey))

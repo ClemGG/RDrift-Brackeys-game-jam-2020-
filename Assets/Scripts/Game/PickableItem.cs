@@ -2,8 +2,6 @@
 
 public class PickableItem : InteractableItem
 {
-    [SerializeField] float rotationSpeed;
-
     Transform t;
 
 
@@ -11,23 +9,15 @@ public class PickableItem : InteractableItem
     void Start()
     {
         t = transform;
+        OnInteractedEvent.AddListener(delegate { Setup(true); });
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        t.Rotate(t.up * rotationSpeed * Time.fixedDeltaTime);
-    }
 
-    public void HideItemOnPickedUp(bool hide)
-    {
-        
-    }
 
     public override void Setup(bool active)
     {
         interacted = active;
         GetComponent<Collider>().enabled = !interacted;
-        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = !interacted;
+        transform.GetChild(0).gameObject.SetActive(!interacted);
     }
 }

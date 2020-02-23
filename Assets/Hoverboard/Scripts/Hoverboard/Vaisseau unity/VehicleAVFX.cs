@@ -22,8 +22,6 @@ public class VehicleAVFX : MonoBehaviour
 
 	public ParticleSystem engineThrusterL;  //The left thruster particles
 	public ParticleSystem engineThrusterR;  //The right thruster particles
-	public ParticleSystem engineBoosterL;  //The left thruster particles
-	public ParticleSystem engineBoosterR;  //The right booster particles
 	public ParticleSystem wallGrind;        //The wall booster particles
 
 
@@ -116,8 +114,6 @@ public class VehicleAVFX : MonoBehaviour
 
 		//Stop the wall grind particles of they happen to be playing
 		wallGrind.Stop();
-		engineBoosterL.Stop();
-		engineBoosterR.Stop();
 
 		//Disable the light trails
 		lightTrails.SetActive(false);
@@ -156,13 +152,11 @@ public class VehicleAVFX : MonoBehaviour
 		float currentLifeTime = thrusterStartLife * input.thruster;
 
 		//If the thrusters are powered on at all...
-		if (currentLifeTime > 0f && movement.allowedToBoost)
+		if (currentLifeTime > 0f)
 		{
 			//...play the particle systems...
 			engineThrusterR.Play();
 			engineThrusterL.Play();
-			engineBoosterL.Stop();
-			engineBoosterR.Stop();
 
 			//...update the particle life for the left thruster...
 			mainModule = engineThrusterL.main;
@@ -177,11 +171,6 @@ public class VehicleAVFX : MonoBehaviour
 			engineThrusterR.Stop();
 			engineThrusterL.Stop(); 
 			
-			if (!movement.allowedToBoost)
-			{
-				engineBoosterL.Play();
-				engineBoosterR.Play();
-			}
 		}
 
 		
@@ -193,7 +182,7 @@ public class VehicleAVFX : MonoBehaviour
 		float currentIntensity = lightStartIntensity * input.thruster;
 
 		//If the ship is moving forward and not braking...
-		if (currentIntensity >= 0f && !input.isBraking)
+		if (currentIntensity >= 0f/* && !input.isBraking*/)
 		{
 			//... set the light's color and intensity
 			exhaustLight.color = thrustColor;

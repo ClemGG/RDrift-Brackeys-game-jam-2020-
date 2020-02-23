@@ -123,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &3695809225333817528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,12 +151,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: OnTriggerInteracted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  particlePrefab: {fileID: 0}
+  interactionClip: {fileID: 8300000, guid: 9501ea826ab834547a4d6a1e38749b91, type: 3}
   interacted: 0
   btnRend: {fileID: 3695809225580455387}
-  initColor: {r: 0.0764062, g: 0.7068295, b: 0.9528302, a: 1}
-  pressedColor: {r: 0.8962264, g: 0.17332679, b: 0.17332679, a: 1}
+  initMat: {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
+  pressedMat: {fileID: 2100000, guid: 663834164c6a04740aaa1b778249ce7e, type: 2}
 --- !u!1 &3695809225580455388
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,4 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e50c0e8f705f05448529bd7634b4949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools: []
+  pools:
+  - tag: particle coin
+    prefab: {fileID: 8749801768341758894, guid: c989306c64f0be04889ae80044c10c90,
+      type: 3}
+    size: 15
+  - tag: particle timer
+    prefab: {fileID: 5070678245237781764, guid: ed27f47e8ea42524c95d2e75997f2ee4,
+      type: 3}
+    size: 1

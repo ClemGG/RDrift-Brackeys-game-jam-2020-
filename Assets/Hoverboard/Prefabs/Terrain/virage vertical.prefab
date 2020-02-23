@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7412195380297733767}
   - component: {fileID: 7288302180417828837}
   - component: {fileID: 6320400917510632847}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: virage vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b830fb31c0dac4b9c0af05592c6b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiling: {x: 8, y: 80}
+  tiling: {x: 1, y: 1}
 --- !u!64 &6320400917510632847
 MeshCollider:
   m_ObjectHideFlags: 0

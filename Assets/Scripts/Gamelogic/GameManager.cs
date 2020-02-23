@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] TextMeshProUGUI countdownText;
 
 	int currentLap = 0;                     //The current lap the player is on
-	bool isGameOver;                        //A flag to determine if the game is over
+	[HideInInspector] public bool isGameOver;                        //A flag to determine if the game is over
 	bool raceHasBegun;                      //A flag to determine if the race has begun
 	int _countdownTimer;
 

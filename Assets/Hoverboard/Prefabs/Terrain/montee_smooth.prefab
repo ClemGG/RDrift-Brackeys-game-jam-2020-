@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4935330942063835998}
   - component: {fileID: 827761914607330029}
   - component: {fileID: 1001157452781697387}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: montee_smooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b830fb31c0dac4b9c0af05592c6b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiling: {x: 8, y: 24}
+  tiling: {x: 1, y: 1}
 --- !u!64 &1001157452781697387
 MeshCollider:
   m_ObjectHideFlags: 0

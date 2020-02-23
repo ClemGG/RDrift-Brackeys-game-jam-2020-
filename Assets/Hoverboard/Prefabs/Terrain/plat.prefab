@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2502463318128885952}
   - component: {fileID: 4167194397443575141}
   - component: {fileID: -9079757256170118524}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b830fb31c0dac4b9c0af05592c6b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiling: {x: 8, y: 24}
+  tiling: {x: 1, y: 1}
 --- !u!65 &-9079757256170118524
 BoxCollider:
   m_ObjectHideFlags: 0
